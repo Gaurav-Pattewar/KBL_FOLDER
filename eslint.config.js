@@ -10,11 +10,13 @@ export default defineConfig([
     },
     plugins: {
       js,
+      jest
     },
     rules: {
-      // ✅ Allow unused arguments if they start with underscore
       "no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
     },
-    extends: ["js/recommended"],
+    extends: ["js/recommended", "plugin:jest/recommended"],
+    jest: true,
+
   },
 ]);

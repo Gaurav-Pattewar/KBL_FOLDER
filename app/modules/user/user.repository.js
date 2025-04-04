@@ -1,15 +1,17 @@
 import { AppDataSource } from "../../config/connection.js";
 import { User } from "./user.schema.js";
 
-export const UserRepository = AppDataSource.getRepository(User);
+const UserRepository = () => AppDataSource.getRepository(User);
 
 const create = async (userData) => {
-  const user = UserRepository.create(userData);
-  return await UserRepository.save(user);
+  const repo = UserRepository();
+  const user = repo.create(userData);
+  return await repo.save(user);
 };
 
 const getAll = async () => {
-  return await UserRepository.find();
+  const repo = UserRepository();
+  return await repo.find();
 };
 
 export default { getAll, create };
