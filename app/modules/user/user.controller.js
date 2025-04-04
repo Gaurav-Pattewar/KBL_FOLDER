@@ -4,10 +4,12 @@ import dummyService from "./user.service.js";
 import { USER_MESSAGES } from "./user.constant.js";
 import { validateRequest } from "../../utility/middlewares/validate-request.js";
 import { createUserSchema } from "./user.validation.js";
+import { permit } from "../../utility/auth.js";
 
 export const UserRouter = Router();
 
-UserRouter.get("/", async (req, res, next) => {
+UserRouter.get("/",permit(["user"]),
+async (req, res, next) => {
   try {
     // const error = new Error("This is a hardcoded error in the route file");
     // error.status = 400; // Bad Request

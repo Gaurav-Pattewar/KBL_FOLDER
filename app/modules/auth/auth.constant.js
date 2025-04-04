@@ -1,0 +1,6 @@
+
+export const AUTH_MESSAGES = {
+    LOGIN:'LOGIN SUCCESS!',
+    SIGNUP:'SIGNUP SUCCESS!'
+    
+}

@@ -1,11 +1,11 @@
-import dummyRepository from "./user.repository.js";
+import userRepository from "./user.repository.js";
 
 const getAll = async () => {
-  return await dummyRepository.getAll();
+  return await userRepository.getAll();
 };
 
 const create = async (userData) => {
-  return await dummyRepository.create(userData);
+  return await userRepository.create(userData);
 };
 
 export default {
