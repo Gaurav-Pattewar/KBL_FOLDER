@@ -5,9 +5,9 @@ import { USER_MESSAGES } from "./user.constant.js";
 import { validateRequest } from "../../utility/middlewares/validate-request.js";
 import { createUserSchema } from "./user.validation.js";
 
-export const DummyRouter = Router();
+export const UserRouter = Router();
 
-DummyRouter.get("/", async (req, res, next) => {
+UserRouter.get("/", async (req, res, next) => {
   try {
     // const error = new Error("This is a hardcoded error in the route file");
     // error.status = 400; // Bad Request
@@ -28,7 +28,7 @@ DummyRouter.get("/", async (req, res, next) => {
   }
 });
 
-DummyRouter.post(
+UserRouter.post(
   "/",
   validateRequest(createUserSchema),
   async (req, res, next) => {
