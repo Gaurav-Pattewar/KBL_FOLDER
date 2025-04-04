@@ -1,9 +1,9 @@
 import dummyRepository from "./dummy.repository.js";
 
-class DummyService {
-    async getAll() {
+  const getAll= async() => {
         return await dummyRepository.getAll();
     }
-}
 
-export default new DummyService();
+export default {
+    getAll
+}
