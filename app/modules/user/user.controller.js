@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { ResponseHandler } from "../../utility/response-handler.js";
-import dummyService from "./user.service.js";
+import userService from "./user.service.js";
 import { USER_MESSAGES } from "./user.constant.js";
 import { validateRequest } from "../../utility/middlewares/validate-request.js";
 import { createUserSchema } from "./user.validation.js";
@@ -14,7 +14,7 @@ async (req, res, next) => {
     // const error = new Error("This is a hardcoded error in the route file");
     // error.status = 400; // Bad Request
     // throw error;
-    const result = await dummyService.getAll();
+    const result = await userService.getAll();
     res
       .status(200)
       .json(
@@ -35,7 +35,7 @@ UserRouter.post(
   validateRequest(createUserSchema),
   async (req, res, next) => {
     try {
-      const result = await dummyService.create(req.body);
+      const result = await userService.create(req.body);
       res
         .status(200)
         .json(
