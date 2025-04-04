@@ -4,6 +4,7 @@ import { User } from "../modules/user/user.schema.js";
 import dotenv from "dotenv";
 dotenv.config();
 
+// eslint-disable-next-line no-undef
 const { DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT } = process.env;
 
 export const AppDataSource = new DataSource({

@@ -8,6 +8,7 @@ export const startServer = () => {
 
   registerRoutes(app);
 
+  // eslint-disable-next-line no-undef
   const { PORT } = process.env;
 
   AppDataSource.initialize()
