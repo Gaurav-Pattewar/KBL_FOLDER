@@ -1,5 +1,5 @@
 import { AppDataSource } from "../../config/connection.js";
-import { User } from "./dummy.schema.js";
+import { User } from "./user.schema.js";
 
 export const UserRepository = AppDataSource.getRepository(User);
 

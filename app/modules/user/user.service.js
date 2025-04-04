@@ -1,4 +1,4 @@
-import dummyRepository from "./dummy.repository.js";
+import dummyRepository from "./user.repository.js";
 
 const getAll = async () => {
   return await dummyRepository.getAll();

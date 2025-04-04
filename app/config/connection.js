@@ -1,6 +1,6 @@
 import { DataSource } from "typeorm";
 import "reflect-metadata";
-import { User } from "../modules/dummy/dummy.schema.js";
+import { User } from "../modules/user/user.schema.js";
 import dotenv from "dotenv";
 dotenv.config();
 

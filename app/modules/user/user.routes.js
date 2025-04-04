@@ -1,9 +1,9 @@
 import { Router } from "express";
 import { ResponseHandler } from "../../utility/response-handler.js";
-import dummyService from "./dummy.service.js";
-import { USER_MESSAGES } from "./dummy.constant.js";
+import dummyService from "./user.service.js";
+import { USER_MESSAGES } from "./user.constant.js";
 import { validateRequest } from "../../utility/middlewares/validate-request.js";
-import { createUserSchema } from "./dummy.validation.js";
+import { createUserSchema } from "./user.validation.js";
 
 export const DummyRouter = Router();
 
