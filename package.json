@@ -6,6 +6,7 @@
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "start": "nodemon index.js",
+    "debug":"nodemon --inspect-brk index.js",
     "eslint": "npx eslint ."
   },
   "keywords": [],
@@ -20,6 +21,7 @@
     "joi": "^17.13.3",
     "json": "^11.0.0",
     "jsonwebtoken": "^9.0.2",
+    "mssql": "^11.0.1",
     "mysql": "^2.18.1",
     "reflect-metadata": "^0.2.2",
     "typeorm": "^0.3.22"

@@ -39,7 +39,7 @@ export const permit = (permittedRoles) => {
             return next();
         }
         const error = new Error("UNAUTHORIZED");
-        error.status = 401; 
+        error.status = 403; 
         throw error;
     }
 }

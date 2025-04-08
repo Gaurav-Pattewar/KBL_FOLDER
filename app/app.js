@@ -13,12 +13,12 @@ export const startServer = () => {
 
   AppDataSource.initialize()
     .then(() => {
-      console.log("✅ MySQL connected with TypeORM");
+      console.log("MSSQL connected with TypeORM");
       app.listen(PORT, () => {
-        console.log("🚀 Server running at http://localhost:3000");
+        console.log(`Server running at http://localhost:${PORT}`);
       });
     })
     .catch((err) => {
-      console.error("❌ Database connection error:", err);
+      console.error("Database connection error:", err);
     });
 };
