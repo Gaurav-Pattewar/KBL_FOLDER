@@ -8,7 +8,13 @@ const create = async (userData) => {
   return await userRepository.create(userData);
 };
 
+const findByEmail = async (email) => {
+  return await userRepository.findByEmail(email);
+};  
+
+
 export default {
   getAll,
   create,
+  findByEmail
 };

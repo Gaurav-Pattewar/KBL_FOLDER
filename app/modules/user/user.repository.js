@@ -14,4 +14,9 @@ const getAll = async () => {
   return await repo.find();
 };
 
-export default { getAll, create };
+const findByEmail = async (email) => {
+  const repo = UserRepository();
+  return await repo.findOneBy({ email });
+}
+
+export default { getAll, create, findByEmail };

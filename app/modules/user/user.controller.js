@@ -8,12 +8,41 @@ import { permit } from "../../utility/auth.js";
 
 export const UserRouter = Router();
 
-UserRouter.get("/",permit(["user"]),
+
+/**
+ * @swagger
+ * /user:
+ *   get:
+ *     summary: Get all users (admin only)
+ *     tags: [User]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: List of users fetched successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                 statusCode:
+ *                   type: integer
+ *                 message:
+ *                   type: string
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *       401:
+ *         description: Unauthorized - Missing or invalid token
+ *       403:
+ *         description: Forbidden - Admin access required
+ */
+UserRouter.get("/",permit(["admin"]),
 async (req, res, next) => {
   try {
-    // const error = new Error("This is a hardcoded error in the route file");
-    // error.status = 400; // Bad Request
-    // throw error;
     const result = await userService.getAll();
     res
       .status(200)

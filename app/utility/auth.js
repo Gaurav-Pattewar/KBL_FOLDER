@@ -5,14 +5,21 @@ import jwt  from "jsonwebtoken";
 
 export const createToken = (payload) => {
     const secretKey = process.env.JWT_SECRET_KEY;
-    const token = jwt.sign(payload, secretKey);
+    const token = jwt.sign(payload, secretKey, { expiresIn: '1h' });
     return token;
 }
 
 export const verifyToken = (token) => {
-    const secretKey = process.env.JWT_SECRET_KEY;
-    const payload = jwt.verify(token, secretKey);
-    return payload;
+    try{
+        const secretKey = process.env.JWT_SECRET_KEY;
+        const payload = jwt.verify(token, secretKey);
+        return payload;
+    } catch (error) {
+        const err = new Error("INVALID_TOKEN");
+        err.status = 401; 
+        throw err;
+    }
+
 }
 
 
@@ -23,6 +30,11 @@ export const authorization = (ExcludedRoutes) => {
                 return next();
             }
             const token = req.headers.authorization?.split(' ')[1];
+            if(!token) {
+                const error = new Error("JWT_TOKEN_MISSING");
+                error.status = 401; 
+                throw error;
+            }
             const payload = verifyToken(token);
             res.locals.user = payload;
             
