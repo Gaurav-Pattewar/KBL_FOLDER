@@ -6,34 +6,6 @@ import { createUserSchema,createLoginSchema } from "./auth.validation.js";
 import { AUTH_MESSAGES } from "./auth.constant.js";
 
 export const AuthRouter = Router();
-/**
- * @swagger
- * /auth/login:
- *   post:
- *     summary: User login
- *     tags: [Auth]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               email:
- *                 type: string
- *                 format: email
- *               password:
- *                 type: string
- *                 format: password
- *             example:
- *               email: "user@example.com"
- *               password: "password123"
- *     responses:
- *       200:
- *         description: Login successful
- *       401:
- *         description: Invalid credentials
- */
 
 AuthRouter.post("/login", async (req, res, next) => {
   try {

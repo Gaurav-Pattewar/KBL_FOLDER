@@ -8,38 +8,6 @@ import { permit } from "../../utility/auth.js";
 
 export const UserRouter = Router();
 
-
-/**
- * @swagger
- * /user:
- *   get:
- *     summary: Get all users (admin only)
- *     tags: [User]
- *     security:
- *       - bearerAuth: []
- *     responses:
- *       200:
- *         description: List of users fetched successfully
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 success:
- *                   type: boolean
- *                 statusCode:
- *                   type: integer
- *                 message:
- *                   type: string
- *                 data:
- *                   type: array
- *                   items:
- *                     type: object
- *       401:
- *         description: Unauthorized - Missing or invalid token
- *       403:
- *         description: Forbidden - Admin access required
- */
 UserRouter.get("/",permit(["admin"]),
 async (req, res, next) => {
   try {

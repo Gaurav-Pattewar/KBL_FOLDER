@@ -26,7 +26,8 @@
     "reflect-metadata": "^0.2.2",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
-    "typeorm": "^0.3.22"
+    "typeorm": "^0.3.22",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.23.0",
